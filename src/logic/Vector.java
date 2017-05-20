@@ -149,7 +149,14 @@ public class Vector {
     	return result;
     }
     
-    
+    public void print(){
+    	String result = "( ";
+    	
+    	for (int i = 0; i < this.lenght; i++){
+     		result = ", " + this.getList().get(i);
+    	}
+    	System.out.println(result);
+    }
 	
 
 }

@@ -153,8 +153,13 @@ public class Vector {
     	String result = "( ";
     	
     	for (int i = 0; i < this.lenght; i++){
-     		result = ", " + this.getList().get(i);
+    		if (i == 0){
+    			result += this.getList().get(i);
+    		}else{
+    			result += ", " + this.getList().get(i);
+    		}
     	}
+    	result += " )";
     	System.out.println(result);
     }
 	

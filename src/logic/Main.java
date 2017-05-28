@@ -16,6 +16,17 @@ public class Main {
 	    }
 		return result;
 	}
+	
+	public static void printArray(ArrayList pArray){
+		System.out.print("( ");
+		for (int i = 0; i < pArray.size(); i++){
+			if (i != pArray.size() - 1){
+				System.out.print(pArray.get(i) + ", ");
+			}else{
+				System.out.println(pArray.get(i) + " )");
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -27,6 +38,7 @@ public class Main {
 			System.out.println("Bienvenido al operdador de Vectores");
 			System.out.println("Seleccione la opcion deseada (0 para salir)");
 			System.out.println("1. Suma de Vectores");
+			System.out.println("2. Normalizacion de un vector");
 			System.out.println("4. Producto Punto");
 			System.out.println("5. Magnitud de un vector");
 			System.out.println();
@@ -60,10 +72,31 @@ public class Main {
 			    vector1.setList(result);
 			    
 			    //Se imprime el resultado
-			    System.out.println("El resultado es: ");
+			    System.out.print("El resultado es: ");
 			    vector1.print();
 			    
 	
+			}else if ("2".compareTo(opcion) == 0){
+				
+				//Obtengo el largo del vector
+				System.out.println("Porfavor ingrese el largo del vector");
+				Scanner largo_in = new Scanner(System.in);
+				int largo = largo_in.nextInt();
+				
+				//Se ingresa el vector
+			    System.out.println("Porfavor ingrese los valores del vector");
+			    System.out.println();
+			    ArrayList<Integer> temp_list = get_array(largo);
+			    Vector vector = new Vector(temp_list);
+			    
+			    //Se obtiene la normalizacion del vector
+			    ArrayList<Double> result = vector.Normalizacion();
+			    //vector.setList(result);
+			    
+			    //Se imprime el resultado
+			    System.out.print("El resultado es: ");
+			    printArray(result);
+				
 			}else if ("4".compareTo(opcion) == 0){ //Producto Punto
 				
 				//Obtengo el largo de los vectores
@@ -88,6 +121,7 @@ public class Main {
 			    int result = vector1.productoPunto(vector2);
 			    
 			    //Se imprime el resultado
+			    System.out.print("El resultado es: ");
 			    System.out.println(result);
 		    	
 		    }else if ("5".compareTo(opcion) == 0){ //Magnitud de un vector
@@ -107,6 +141,7 @@ public class Main {
 			    double result = vector.magnitud();
 			    
 			    //Se imprime el resultado
+			    System.out.print("El resultado es: ");
 			    System.out.println(result);
 		    	
 		    }else if ("0".compareTo(opcion) == 0){ //Salir

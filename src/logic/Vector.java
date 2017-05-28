@@ -163,5 +163,15 @@ public class Vector {
     	System.out.println(result);
     }
 	
+    public ArrayList<Double> Normalizacion(){
+    	ArrayList<Double> result = new ArrayList<Double>();
+    	
+    	for (int i = 0; i < this.lenght; i++){
+    		double parcial = this.getList().get(i) / this.magnitud();
+    		result.add(parcial);
+    	}
+    	
+    	return result;
+    }
 
 }
